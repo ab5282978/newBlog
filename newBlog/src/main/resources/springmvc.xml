@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	<!-- 配置@controller包扫描 -->
+    <context:component-scan base-package="com.newBlog.controller"/> 
+    
+    <!-- 使用最新版的处理器映射器 -->
+    <!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" />   -->
+    <!-- 使用最新版的处理器适配器 --> 
+    <!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />    -->
+    
+    <!-- 使用注解驱动，默认就会使用最新版本的处理器映射器与适配器，同它为json串响应提供支持 -->
+    <mvc:annotation-driven/>
+    
+    <!-- 配置视图解析器 -->
+     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<!-- 配置前后缀 -->
+    	<property name="prefix" value="/" />
+    	<property name="suffix" value=".html" />
+    </bean> 
+    <!-- 解决静态资源无法被springMVC访问的问题 -->
+ 	<mvc:default-servlet-handler/>
+	
+
+</beans>

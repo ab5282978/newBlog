@@ -1,13 +1,14 @@
 package com.newBlog.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.newBlog.service.UserService;
+
 @Controller
 public class testController {
-	@RequestMapping("toIndex2")
-	public String toIndex2(){
-		System.out.println("进入方法");
-		return "index2";
-	}
+	@Autowired
+	private UserService userService;
+
 }
